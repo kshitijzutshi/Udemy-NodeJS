@@ -7,3 +7,4 @@ const msg = getNote()
 //console.log(sum)
 console.log(msg)
 
+console.log('Testing Git')
