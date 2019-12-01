@@ -12,7 +12,7 @@ console.log(msg)
 console.log(validator.isEmail('johndoe@example.com'))
 console.log(validator.isURL('https://mead.io'))
 // Trying out the chalk package
-console.log(chalk.green('Success! chalk is working!'))
-console.log(chalk.green('I am a green line ' + chalk.blue.underline.bold('with a blue substring') + ' that becomes green again!'))
+console.log(chalk.green.inverse.bold('Success! chalk is working!'))
+console.log(chalk.green.inverse('I am a green line ' + chalk.blue.underline.inverse.bold('with a blue substring') + ' that becomes green again!'))
 
 console.log('Testing Git!!!!')
