@@ -31,5 +31,5 @@ const yargs = require('yargs')
 
 // Comparison between Process and yargs
 
-console.log(process.argsv)
+console.log(process.argv)
 console.log(yargs.argv)
