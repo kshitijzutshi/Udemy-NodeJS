@@ -31,5 +31,57 @@ const yargs = require('yargs')
 
 // Comparison between Process and yargs
 
-console.log(process.argv)
+// console.log(process.argv)
+
+yargs.version('1.1.0')
+
+
+// Creating add, remove, read, and list using commands in yargs
+
+// Create add command
+
+yargs.command({
+    command : 'add',
+    describe : 'Add a new note.',
+    builder : {
+        title : {
+            describe : 'Title of note',
+            demandOption : true, // by default the required option for title is false, if its true, title is mangadory
+            type : 'string' // If type not given then if title is given blank it will take it as boolean true.
+        }
+    },
+    handler : function(argv){
+        console.log('Adding a new note!',argv)
+    }
+})
+
+//Create remove command
+yargs.command({
+    command : 'remove',
+    describe : 'Remove a note',
+    handler : function(){
+        console.log('Removed the note!')
+    }
+})
+
+// Create read command
+yargs.command({
+    command : 'read',
+    describe : 'Read a note',
+    
+    handler : function(){
+        console.log('Reading a Note!', )
+    }
+})
+
+// Create list command
+
+yargs.command({
+    command : 'list',
+    describe : 'list all the notes',
+    handler : function(){
+        console.log('All Notes listed.')
+    }
+})
+
 console.log(yargs.argv)
