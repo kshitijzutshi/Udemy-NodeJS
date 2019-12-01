@@ -52,7 +52,7 @@ yargs.command({
         describe : {
             describe : 'description of note',
             demandOption : true,
-            type : 'string'
+            
         }
     },
     handler : function(argv){
