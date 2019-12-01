@@ -48,10 +48,17 @@ yargs.command({
             describe : 'Title of note',
             demandOption : true, // by default the required option for title is false, if its true, title is mangadory
             type : 'string' // If type not given then if title is given blank it will take it as boolean true.
+        },
+        describe : {
+            describe : 'description of note',
+            demandOption : true,
+            type : 'string'
         }
     },
     handler : function(argv){
-        console.log('Adding a new note!',argv)
+        // console.log('Adding a new note!',argv)  // dosent get us the note title
+        console.log('Title : '+ argv.title)  // gets us the title of the note
+        console.log('Description : '+ argv.describe) // gets us the description of the note
     }
 })
 
@@ -84,4 +91,6 @@ yargs.command({
     }
 })
 
-console.log(yargs.argv)
+console.log(yargs.argv)  // prints twice
+
+//yargs.parse() // prints the yargs values only once
