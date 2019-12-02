@@ -1,7 +1,8 @@
 //const add = require('./utils.js')
 const validator = require('validator')
 const chalk =  require('chalk')
-const getNote = require('./notes.js')
+// Now we have multiple exports so name change
+const notes = require('./notes.js')
 const yargs = require('yargs')
 
 // const msg = getNote()
@@ -49,7 +50,7 @@ yargs.command({
             demandOption : true, // by default the required option for title is false, if its true, title is mangadory
             type : 'string' // If type not given then if title is given blank it will take it as boolean true.
         },
-        describe : {
+        body : {
             describe : 'description of note',
             demandOption : true,
             
@@ -57,8 +58,10 @@ yargs.command({
     },
     handler : function(argv){
         // console.log('Adding a new note!',argv)  // dosent get us the note title
-        console.log('Title : '+ argv.title)  // gets us the title of the note
-        console.log('Description : '+ argv.describe) // gets us the description of the note
+        // console.log('Title : '+ argv.title)  // gets us the title of the note
+        // console.log('Description : '+ argv.body) // gets us the description of the note
+        // INSTEAD of logging the argv we now pass the params to addNotes fn in notes.js
+        notes.addNote(argv.title,argv.body)
     }
 })
 
@@ -93,4 +96,4 @@ yargs.command({
 
 console.log(yargs.argv)  // prints twice
 
-//yargs.parse() // prints the yargs values only once
+// yargs.parse() // prints the yargs values only once

@@ -16,7 +16,8 @@ const book = {
 // Now to use fs module to write data to disk
 // fs.writeFileSync('1-json.json',bookJSON)
 
-// Now to read the 1-json.json file and change the name and age attributes and overwrite them
+// Now to read the 1-json.json file and change the name 
+//and age attributes and overwrite them
 const dataBuffer =  fs.readFileSync('1-json.json') // this stores data as binary so to print this we use toString method
 const dataJSON = dataBuffer.toString()
 
