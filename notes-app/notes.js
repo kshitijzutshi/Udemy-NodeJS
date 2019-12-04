@@ -26,6 +26,22 @@ const addNote = function(title, body){
     
 }
 
+const deleteNote = function (title){
+    const notes = loadNotes()
+    if(notes.title === title){
+        notes.pop({
+            title : title,
+            body : body
+        })
+        saveNotes(notes)
+    }
+    else{
+        console.log('Note not present!')
+    }
+    
+
+}
+
 const saveNotes = function(notes){
     // save the note from 
     const dataJSON = JSON.stringify(notes)

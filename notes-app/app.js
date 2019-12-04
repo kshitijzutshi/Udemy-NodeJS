@@ -69,8 +69,9 @@ yargs.command({
 yargs.command({
     command : 'remove',
     describe : 'Remove a note',
-    handler : function(){
-        console.log('Removed the note!')
+    handler : function(argv){
+        notes.deleteNote(argv.title)
+        // console.log('Removed the note!')
     }
 })
 
