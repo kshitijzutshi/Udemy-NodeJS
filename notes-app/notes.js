@@ -27,17 +27,22 @@ const addNote = function(title, body){
 }
 
 const deleteNote = function (title){
+    
+    // Use the array filter method to store the titles that DONT match the provided title, then save the new array
     const notes = loadNotes()
-    if(notes.title === title){
-        notes.pop({
-            title : title,
-            body : body
-        })
-        saveNotes(notes)
-    }
-    else{
-        console.log('Note not present!')
-    }
+    const newnotes = notes.filter(function(note){
+        return note.title !== title
+    })
+    // if(notes.title === title){
+    //     notes.pop({
+    //         title : title,
+    //         body : body
+    //     })
+        saveNotes(newnotes)
+    // }
+    // else{
+    //     console.log('Note not present!')
+    // }
     
 
 }
@@ -66,5 +71,6 @@ const loadNotes = function(){
 // To export multiple functions -> now the module.exports will be an object
 module.exports = {
     getNotes : getNotes, // property : value
-    addNote : addNote
+    addNote : addNote,
+    deleteNote : deleteNote
 }

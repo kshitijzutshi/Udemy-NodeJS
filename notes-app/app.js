@@ -68,7 +68,14 @@ yargs.command({
 //Create remove command
 yargs.command({
     command : 'remove',
-    describe : 'Remove a note',
+    describe : 'Remove a note', 
+    builder : {
+            title : {
+                describe : 'note title',
+                demandOption : true, // by default the required option for title is false, if its true, title is mangadory
+                type : 'string'
+            }
+    },
     handler : function(argv){
         notes.deleteNote(argv.title)
         // console.log('Removed the note!')
