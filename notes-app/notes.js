@@ -5,13 +5,13 @@ const getNotes = function(){
     return 'Your Notes...'
 }
 // Here we declare Add note functionality
-const addNote = function(title, body){
+const addNote = (title, body) => {
     const notes = loadNotes()
 
     // Use array filter to prevent duplicate notes, filter has a function that iterates over singular note to check.
-    const duplicateNotes = notes.filter(function(note){
-        return note.title === title //see if title is same
-    })
+    const duplicateNotes = notes.filter( (note) => { return note.title === title }) 
+    //see if title is same
+
     if(duplicateNotes.length === 0){
         notes.push({
             title : title,
@@ -28,17 +28,16 @@ const addNote = function(title, body){
     
 }
 
-const deleteNote = function (title){
+const deleteNote = (title) => {
     
     // Use the array filter method to store the titles that DONT match the provided title, then save the new array
     const notes = loadNotes()
-    const newnotes = notes.filter(function(note){
+    const newnotes = notes.filter((note) => {  return note.title !== title })
         // if((note.title !== title))
         //     console.log(chalk.red.inverse('No note found!'))
         // else 
         //     console.log(chalk.green.inverse('Note removed!'))
-        return note.title !== title
-    })
+       
    
 
     // ALTERNATIVELY, If you want to print the No note found and note removed statements
@@ -59,14 +58,14 @@ const deleteNote = function (title){
 
 }
 
-const saveNotes = function(notes){
+const saveNotes = (notes) => {
     // save the note from 
     const dataJSON = JSON.stringify(notes)
     fs.writeFileSync('notes.json',dataJSON)
 }
 
 // Reusable code to load and parse file data
-const loadNotes = function(){
+const loadNotes = () => {
 
     try {
         const databuffer = fs.readFileSync('notes.json')
