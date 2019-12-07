@@ -9,7 +9,9 @@ const addNote = (title, body) => {
     const notes = loadNotes()
 
     // Use array filter to prevent duplicate notes, filter has a function that iterates over singular note to check.
-    const duplicateNotes = notes.filter( (note) => { return note.title === title }) 
+    const duplicateNotes = notes.filter((note) => note.title === title ) 
+    // Without using shorthand arrow fns
+    // const duplicateNotes = notes.filter( function(note)  { return note.title === title }) 
     //see if title is same
 
     if(duplicateNotes.length === 0){
@@ -32,7 +34,7 @@ const deleteNote = (title) => {
     
     // Use the array filter method to store the titles that DONT match the provided title, then save the new array
     const notes = loadNotes()
-    const newnotes = notes.filter((note) => {  return note.title !== title })
+    const newnotes = notes.filter((note) =>  note.title !== title )
         // if((note.title !== title))
         //     console.log(chalk.red.inverse('No note found!'))
         // else 
