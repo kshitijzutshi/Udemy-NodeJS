@@ -101,7 +101,9 @@ yargs.command({
     command : 'list',
     describe : 'list all the notes',
     handler() {
-        console.log('All Notes listed.')
+        
+        notes.listNotes()
+      
     }
 })
 

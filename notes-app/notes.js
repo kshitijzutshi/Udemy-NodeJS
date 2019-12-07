@@ -60,6 +60,22 @@ const deleteNote = (title) => {
 
 }
 
+
+// To list all notes
+
+const listNotes = () => { 
+    
+    const notes = loadNotes()
+    console.log(chalk.yellow.inverse(chalk.green('Your Notes')))
+
+        // Now print the note using foreach
+    notes.forEach((note) => { 
+        console.log(note.title) 
+    })
+
+}
+
+
 const saveNotes = (notes) => {
     // save the note from 
     const dataJSON = JSON.stringify(notes)
@@ -85,5 +101,6 @@ const loadNotes = () => {
 module.exports = {
     getNotes : getNotes, // property : value
     addNote : addNote,
-    deleteNote : deleteNote
+    deleteNote : deleteNote,
+    listNotes : listNotes
 }
