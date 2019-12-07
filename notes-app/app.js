@@ -78,7 +78,7 @@ yargs.command({
     },
     handler : function(argv){
         notes.deleteNote(argv.title)
-        // console.log('Removed the note!')
+        
     }
 })
 
@@ -102,6 +102,6 @@ yargs.command({
     }
 })
 
-console.log(yargs.argv)  // prints twice
+// console.log(yargs.argv)  // prints twice
 
-// yargs.parse() // prints the yargs values only once
+yargs.parse() // prints the yargs values only once

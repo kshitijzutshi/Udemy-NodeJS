@@ -1,4 +1,5 @@
 const fs = require('fs')
+const chalk =  require('chalk')
 
 const getNotes = function(){
     return 'Your Notes...'
@@ -18,9 +19,10 @@ const addNote = function(title, body){
         })
         // console.log(notes)
     saveNotes(notes)
+    console.log(chalk.green.inverse('New Note added!'))
     }
     else{
-        console.log('Note Taken!')
+        console.log(chalk.red.inverse('Note title Taken!'))
     }
     
     
@@ -31,14 +33,24 @@ const deleteNote = function (title){
     // Use the array filter method to store the titles that DONT match the provided title, then save the new array
     const notes = loadNotes()
     const newnotes = notes.filter(function(note){
+        // if((note.title !== title))
+        //     console.log(chalk.red.inverse('No note found!'))
+        // else 
+        //     console.log(chalk.green.inverse('Note removed!'))
         return note.title !== title
     })
-    // if(notes.title === title){
-    //     notes.pop({
-    //         title : title,
-    //         body : body
-    //     })
+   
+
+    // ALTERNATIVELY, If you want to print the No note found and note removed statements
+    if(notes.length > newnotes.length){
+        console.log(chalk.red.inverse('Note removed!'))
         saveNotes(newnotes)
+    }else{
+        console.log(chalk.green.inverse('No note found!'))
+    } 
+           
+        // saveNotes(newnotes)
+        
     // }
     // else{
     //     console.log('Note not present!')
