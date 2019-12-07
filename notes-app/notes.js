@@ -9,12 +9,12 @@ const addNote = (title, body) => {
     const notes = loadNotes()
 
     // Use array filter to prevent duplicate notes, filter has a function that iterates over singular note to check.
-    const duplicateNotes = notes.filter((note) => note.title === title ) 
+    const duplicateNotes = notes.find((note) => note.title === title ) 
     // Without using shorthand arrow fns
     // const duplicateNotes = notes.filter( function(note)  { return note.title === title }) 
     //see if title is same
 
-    if(duplicateNotes.length === 0){
+    if(!duplicateNotes){
         notes.push({
             title : title,
             body : body
@@ -26,6 +26,27 @@ const addNote = (title, body) => {
     else{
         console.log(chalk.red.inverse('Note title Taken!'))
     }
+
+
+// IN THIS CODE THE FILTER KEEPS SEARCHING DUPLICATES IN 1000s OF NOTES, HENCE TO MAKE IT EFFICIENT, USE FIND.
+    // Use array filter to prevent duplicate notes, filter has a function that iterates over singular note to check.
+    // const duplicateNotes = notes.filter((note) => note.title === title ) 
+    // Without using shorthand arrow fns
+    // const duplicateNotes = notes.filter( function(note)  { return note.title === title }) 
+    //see if title is same
+
+    // if(duplicateNotes.length === 0){
+    //     notes.push({
+    //         title : title,
+    //         body : body
+    //     })
+    //     // console.log(notes)
+    // saveNotes(notes)
+    // console.log(chalk.green.inverse('New Note added!'))
+    // }
+    // else{
+    //     console.log(chalk.red.inverse('Note title Taken!'))
+    // }
     
     
 }
@@ -63,7 +84,7 @@ const deleteNote = (title) => {
 
 // To list all notes
 
-const listNotes = () => { 
+const listNotes = (title) => { 
     
     const notes = loadNotes()
     console.log(chalk.yellow.inverse(chalk.green('Your Notes')))
@@ -74,6 +95,25 @@ const listNotes = () => {
     })
 
 }
+
+// To read a note based on given title
+
+const readNotes = (title) => {
+
+    const notes = loadNotes()
+
+    const foundNote = notes.find((note) => note.title === title )
+    // console.log(foundNote)
+    if(foundNote){
+        console.log(chalk.green.inverse('Note Title : ')+ chalk.green(foundNote.title))
+        console.log(chalk.green.inverse('Note description : ')+chalk.green(foundNote.body))
+    }
+    else{
+        console.log(chalk.red.inverse('No note found!'))
+    }
+     
+}
+
 
 
 const saveNotes = (notes) => {
@@ -102,5 +142,6 @@ module.exports = {
     getNotes : getNotes, // property : value
     addNote : addNote,
     deleteNote : deleteNote,
-    listNotes : listNotes
+    listNotes : listNotes,
+    readNotes : readNotes
 }
