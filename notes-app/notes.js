@@ -1,9 +1,7 @@
 const fs = require('fs')
 const chalk =  require('chalk')
 
-const getNotes = function(){
-    return 'Your Notes...'
-}
+
 // Here we declare Add note functionality
 const addNote = (title, body) => {
     const notes = loadNotes()
@@ -139,7 +137,7 @@ const loadNotes = () => {
 
 // To export multiple functions -> now the module.exports will be an object
 module.exports = {
-    getNotes : getNotes, // property : value
+     // property : value
     addNote : addNote,
     deleteNote : deleteNote,
     listNotes : listNotes,
