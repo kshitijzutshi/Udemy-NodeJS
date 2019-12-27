@@ -1,5 +1,7 @@
-# Udemy-NodeJS
+# Repo for building Node Applications!
 [![node](https://img.shields.io/badge/version-12.13.1-green)](https://nodejs.org/en/) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c299f9a420584eb8baa8a78e162c0480)](https://www.codacy.com/manual/kshitijzutshi/Udemy-NodeJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kshitijzutshi/Udemy-NodeJS&amp;utm_campaign=Badge_Grade)
+
+![node image](https://camo.githubusercontent.com/936a08778c7e4885053d148c07bbd2339dfbdd80/68747470733a2f2f6665726f73732e6e65742f782f6e6f6465322e676966)
 
 This repository is for all the modules I work with and practice in **The Complete Node.js Developer Course (3rd Edition)**.
 
